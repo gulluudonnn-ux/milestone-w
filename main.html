@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Live Production Islamabad | Milestone Communications</title>
+    <meta name="description" content="Milestone Live: Broadcast-grade conference, symposium, and hybrid event production in Islamabad. Dream, Create, inspire.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#E64A33',
+                            redDark: '#C93B26',
+                            redSoft: '#FFF5F3',
+                            dark: '#1E2022',
+                            gray: '#5A6065',
+                            light: '#F8F9FA',
+                            border: '#EAEAEA'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Clean minimalist hover lift */
+        .clean-card {
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .clean-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px -8px rgba(26, 26, 26, 0.08);
+            border-color: #E64A33;
+        }
+        @keyframes livePulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.35; }
+        }
+        .live-indicator {
+            animation: livePulse 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-white text-brand-dark font-sans antialiased selection:bg-brand-red selection:text-white">
+
+    <!-- ===================================================================== -->
+    <!-- 1. STICKY HEADER (Matches Milestone Cover Identity)                   -->
+    <!-- ===================================================================== -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-brand-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Official Lowercase Milestone Logo + Tagline -->
+                <a href="#top" class="flex flex-col items-start group">
+                    <span class="font-display font-extrabold text-3xl tracking-tight text-brand-red leading-none lowercase">
+                        milestone
+                    </span>
+                    <span class="text-[11px] font-medium text-brand-dark tracking-wide mt-0.5">
+                        Dream, Create, inspire
+                    </span>
+                </a>
+
+                <!-- Simple 4-Pillar Navigation -->
+                <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-brand-gray">
+                    <a href="#trust-band" class="hover:text-brand-dark transition">Home</a>
+                    <a href="#capabilities" class="hover:text-brand-dark transition">Communications</a>
+                    <a href="#case-studies" class="hover:text-brand-dark transition">Video Production</a>
+                    <a href="#venues" class="hover:text-brand-dark transition">Trainings</a>
+                    <a href="#top" class="text-brand-red font-semibold border-b-2 border-brand-red py-7 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-red live-indicator"></span>
+                        Events & Live Production
+                    </a>
+                </nav>
+
+                <!-- Primary CTA -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <button onclick="openCapabilityModal()" class="text-xs font-semibold text-brand-dark hover:text-brand-red px-3.5 py-2.5 rounded-lg border border-brand-border hover:border-brand-red transition">
+                        Capability PDF
+                    </button>
+                    <a href="#proposal" class="bg-brand-red hover:bg-brand-redDark text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow-sm transition">
+                        Request a Proposal
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-brand-dark hover:bg-brand-light" aria-label="Menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-brand-border px-4 py-4 space-y-2 shadow-lg">
+            <a href="#trust-band" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm text-brand-gray">Home</a>
+            <a href="#capabilities" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm text-brand-gray">Communications</a>
+            <a href="#case-studies" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm text-brand-gray">Video Production</a>
+            <a href="#venues" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm text-brand-gray">Trainings</a>
+            <a href="#top" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-bold text-brand-red bg-brand-redSoft">Events & Live Production</a>
+            <div class="pt-3 border-t border-brand-border flex flex-col gap-2">
+                <button onclick="openCapabilityModal(); toggleMobileMenu();" class="w-full py-2.5 rounded-lg border border-brand-border text-xs font-semibold text-brand-dark">
+                    Download Capability PDF
+                </button>
+                <a href="#proposal" onclick="toggleMobileMenu()" class="w-full py-3 rounded-lg bg-brand-red text-white text-center text-sm font-semibold">
+                    Request a Proposal
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================================================================== -->
+    <!-- 2. HERO SECTION (Subtle NGO/Conference Auditorium Background + Clean) -->
+    <!-- ===================================================================== -->
+    <section id="top" class="relative overflow-hidden bg-white pt-14 pb-16 sm:pt-20 sm:pb-24 border-b border-brand-border">
+        <!-- Soft Photographic Background of High-Level Conference Auditorium -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1920&q=80"
+                 onerror="this.style.display='none'"
+                 alt="International policy conference auditorium in Islamabad"
+                 class="w-full h-full object-cover object-center opacity-[0.12]">
+            <!-- Crisp White Gradient Overlay so Typography Stays Ultra-Clear -->
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/80"></div>
+        </div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Copy -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-redSoft text-brand-red text-xs font-semibold border border-brand-red/15">
+                        <span class="w-2 h-2 rounded-full bg-brand-red live-indicator"></span>
+                        Milestone Live • Islamabad
+                    </div>
+
+                    <!-- Light Prefix + Bold Coral-Red Headline -->
+                    <h1 class="font-display text-3xl sm:text-5xl leading-tight tracking-tight text-brand-dark">
+                        <span class="font-light block text-brand-dark">Milestone Live:</span>
+                        <span class="font-extrabold text-brand-red">Conference & Symposium Production</span>
+                        <span class="font-light block text-2xl sm:text-3xl mt-2 text-brand-dark">Broadcast-grade, in the room and online.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-brand-gray leading-relaxed max-w-xl">
+                        Your conference is also a broadcast—we produce both. We help UN agencies, NGOs, ministries, embassies, and corporates in Islamabad run smooth, TV-quality events without technical stress.
+                    </p>
+
+                    <!-- Simple CTA Row -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <a href="#proposal" class="inline-flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-redDark text-white font-semibold px-7 py-4 rounded-xl shadow-md shadow-brand-red/20 transition text-base">
+                            <span>Request a Proposal</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <button onclick="openShowreelModal('90-Second Events Showreel')" class="inline-flex items-center justify-center gap-3 bg-white hover:bg-brand-light text-brand-dark font-semibold px-6 py-4 rounded-xl border border-brand-border hover:border-brand-red transition text-base shadow-sm">
+                            <span class="w-7 h-7 rounded-full bg-brand-redSoft text-brand-red flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-play ml-0.5"></i>
+                            </span>
+                            <span>Watch 90s Showreel</span>
+                        </button>
+                    </div>
+
+                    <!-- 3 Simple Credibility Highlights -->
+                    <div class="pt-6 border-t border-brand-border grid grid-cols-3 gap-4 max-w-lg">
+                        <div>
+                            <div class="font-display font-extrabold text-xl sm:text-2xl text-brand-dark">18+ Years</div>
+                            <div class="text-xs text-brand-gray mt-0.5">Media Experience</div>
+                        </div>
+                        <div>
+                            <div class="font-display font-extrabold text-xl sm:text-2xl text-brand-red">Since 2020</div>
+                            <div class="text-xs text-brand-gray mt-0.5">Hybrid Pioneers</div>
+                        </div>
+                        <div>
+                            <div class="font-display font-extrabold text-xl sm:text-2xl text-brand-dark">Al Jazeera</div>
+                            <div class="text-xs text-brand-gray mt-0.5">& Geo TV Pedigree</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Showreel Video Card with Real Conference Broadcast Photo -->
+                <div class="lg:col-span-5">
+                    <div onclick="openShowreelModal('90-Second Events Showreel')" class="cursor-pointer group rounded-2xl bg-white border border-brand-border hover:border-brand-red p-3.5 shadow-lg transition">
+                        <div class="relative aspect-video rounded-xl overflow-hidden bg-brand-dark border border-brand-border">
+                            <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=900&q=85"
+                                 onerror="this.src='https://placehold.co/800x450/1E2022/FFFFFF?text=Milestone+Live+Showreel'"
+                                 alt="Broadcast conference stage and live camera production"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            
+                            <!-- Subtle Dark Scrim for Clear Play Button Contrast -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent flex flex-col items-center justify-center">
+                                <div class="w-16 h-16 rounded-full bg-brand-red text-white flex items-center justify-center shadow-xl shadow-brand-red/40 group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-play text-xl ml-1"></i>
+                                </div>
+                                <span class="mt-3 px-3.5 py-1 rounded-full bg-white/95 text-xs font-bold text-brand-dark shadow-sm">
+                                    Play 90s Showreel
+                                </span>
+                            </div>
+
+                            <!-- Top Live Badge -->
+                            <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/70 backdrop-blur-sm text-white text-[10px] font-bold flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-red live-indicator"></span>
+                                LIVE BROADCAST FEED
+                            </div>
+                        </div>
+
+                        <div class="mt-3.5 flex items-center justify-between px-1">
+                            <div>
+                                <div class="text-xs font-bold text-brand-dark">Broadcast-Quality Stage & Live Stream</div>
+                                <div class="text-[11px] text-brand-gray">Multi-camera switching • SMD design • Same-day recaps</div>
+                            </div>
+                            <span class="text-xs font-bold text-brand-red bg-brand-redSoft px-2 py-0.5 rounded">HD 1080p</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 3. HOMEPAGE TRUST BAND ("Conferences produced like broadcasts...")    -->
+    <!-- ===================================================================== -->
+    <section id="trust-band" class="bg-brand-light border-y border-brand-border py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+                
+                <div class="text-center lg:text-left">
+                    <h2 class="font-display text-xl sm:text-2xl text-brand-dark">
+                        <span class="font-light">Conferences produced like broadcasts.</span>
+                        <strong class="font-extrabold text-brand-red"> Hybrid since 2020.</strong>
+                    </h2>
+                </div>
+
+                <!-- 3 Client Sector Badges + Quick 30s Reel -->
+                <div class="flex flex-wrap items-center justify-center gap-3">
+                    <span class="px-3.5 py-2 rounded-lg bg-white border border-brand-border text-xs font-semibold text-brand-dark flex items-center gap-2">
+                        <i class="fa-solid fa-globe text-brand-red"></i> UN & Donors
+                    </span>
+                    <span class="px-3.5 py-2 rounded-lg bg-white border border-brand-border text-xs font-semibold text-brand-dark flex items-center gap-2">
+                        <i class="fa-solid fa-landmark text-brand-red"></i> Government & Policy
+                    </span>
+                    <span class="px-3.5 py-2 rounded-lg bg-white border border-brand-border text-xs font-semibold text-brand-dark flex items-center gap-2">
+                        <i class="fa-solid fa-briefcase-medical text-brand-red"></i> Corporate & Pharma
+                    </span>
+                    <button onclick="openShowreelModal('30-Second Quick Showreel')" class="px-3.5 py-2 rounded-lg bg-brand-redSoft border border-brand-red/30 text-xs font-bold text-brand-red hover:bg-brand-red hover:text-white transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-play text-[10px]"></i> 30s Reel
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 4. CAPABILITIES STRIP (5 Simple Cards)                                -->
+    <!-- ===================================================================== -->
+    <section id="capabilities" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-red">What We Do</span>
+                <h2 class="font-display text-2xl sm:text-3xl text-brand-dark mt-2">
+                    <span class="font-light">Everything needed for a </span>
+                    <strong class="font-extrabold text-brand-red">Seamless Live Event</strong>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                <!-- 1 -->
+                <div class="p-5 rounded-xl bg-white border border-brand-border clean-card text-center">
+                    <div class="w-11 h-11 rounded-full bg-brand-redSoft text-brand-red flex items-center justify-center mx-auto mb-3 text-base">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-brand-dark">Multi-Camera Live</h3>
+                    <p class="text-xs text-brand-gray mt-1.5 leading-relaxed">Crisp camera switching with speaker names on screen.</p>
+                </div>
+
+                <!-- 2 -->
+                <div class="p-5 rounded-xl bg-white border border-brand-border clean-card text-center">
+                    <div class="w-11 h-11 rounded-full bg-brand-redSoft text-brand-red flex items-center justify-center mx-auto mb-3 text-base">
+                        <i class="fa-solid fa-wifi"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-brand-dark">Hybrid Streaming</h3>
+                    <p class="text-xs text-brand-gray mt-1.5 leading-relaxed">Smooth YouTube & Zoom live feeds with remote speakers.</p>
+                </div>
+
+                <!-- 3 -->
+                <div class="p-5 rounded-xl bg-white border border-brand-border clean-card text-center">
+                    <div class="w-11 h-11 rounded-full bg-brand-redSoft text-brand-red flex items-center justify-center mx-auto mb-3 text-base">
+                        <i class="fa-solid fa-display"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-brand-dark">LED Stage Design</h3>
+                    <p class="text-xs text-brand-gray mt-1.5 leading-relaxed">Modern stage backdrops, SMD screens, and clean lighting.</p>
+                </div>
+
+                <!-- 4 -->
+                <div class="p-5 rounded-xl bg-white border border-brand-border clean-card text-center">
+                    <div class="w-11 h-11 rounded-full bg-brand-redSoft text-brand-red flex items-center justify-center mx-auto mb-3 text-base">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-brand-dark">Show Direction</h3>
+                    <p class="text-xs text-brand-gray mt-1.5 leading-relaxed">On-time agenda flow, speaker cues, and VIP management.</p>
+                </div>
+
+                <!-- 5 -->
+                <div class="col-span-2 sm:col-span-1 p-5 rounded-xl bg-white border border-brand-border clean-card text-center">
+                    <div class="w-11 h-11 rounded-full bg-brand-redSoft text-brand-red flex items-center justify-center mx-auto mb-3 text-base">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-brand-dark">Recap Films</h3>
+                    <p class="text-xs text-brand-gray mt-1.5 leading-relaxed">Same-day 60-second highlight videos ready to share.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 5. THREE SIMPLE PACKAGES (No Prices - Clean White & Red Accents)      -->
+    <!-- ===================================================================== -->
+    <section id="packages" class="py-20 bg-brand-light border-y border-brand-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-red">Production Packages</span>
+                <h2 class="font-display text-3xl sm:text-4xl text-brand-dark mt-2">
+                    <span class="font-light">Three Clear Ways to </span>
+                    <strong class="font-extrabold text-brand-red">Work With Us</strong>
+                </h2>
+                <p class="text-sm sm:text-base text-brand-gray mt-3">
+                    Simple, transparent packages tailored to your audience size. Optional catering, registration, and decor available on request.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Package 1: Live Essentials -->
+                <div class="bg-white rounded-2xl border border-brand-border border-t-4 border-t-brand-dark p-7 flex flex-col justify-between clean-card">
+                    <div>
+                        <div class="flex items-center justify-between text-xs font-semibold text-brand-gray mb-3">
+                            <span>50 – 200 Guests</span>
+                            <span>1 Hall • 1 Day</span>
+                        </div>
+                        <h3 class="font-display font-extrabold text-2xl text-brand-dark">Live Essentials</h3>
+                        <p class="text-xs text-brand-gray mt-1.5">Ideal for roundtables, policy briefings, and seminars.</p>
+                        
+                        <div class="my-5 border-t border-brand-border"></div>
+                        
+                        <ul class="space-y-3 text-sm text-brand-dark">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> Custom stage backdrop</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> 1 high-res SMD LED wall</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> Clear hall sound & microphones</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> 2-camera HD recording</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> Event photography</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> <strong>60-second recap video</strong></li>
+                        </ul>
+                    </div>
+
+                    <button onclick="selectPackage('Live Essentials')" class="mt-8 w-full py-3 rounded-xl border border-brand-dark text-brand-dark hover:bg-brand-dark hover:text-white font-semibold text-sm transition">
+                        Request Quote
+                    </button>
+                </div>
+
+                <!-- Package 2: Hybrid Conference (Popular) -->
+                <div class="bg-white rounded-2xl border-2 border-brand-red border-t-8 border-t-brand-red p-7 flex flex-col justify-between shadow-lg relative clean-card">
+                    <span class="absolute -top-3.5 right-5 bg-brand-red text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                        Most Popular
+                    </span>
+
+                    <div>
+                        <div class="flex items-center justify-between text-xs font-semibold text-brand-red mb-3">
+                            <span>150 – 500 Guests</span>
+                            <span>Main Hall + Breakouts</span>
+                        </div>
+                        <h3 class="font-display font-extrabold text-2xl text-brand-dark">Hybrid Conference</h3>
+                        <p class="text-xs text-brand-gray mt-1.5">Built for donor conferences, corporate forums, and symposiums.</p>
+                        
+                        <div class="my-5 border-t border-brand-border"></div>
+                        
+                        <ul class="space-y-3 text-sm text-brand-dark">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> Full AV & stage lighting setup</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> <strong>3 to 4-camera live switch</strong></li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> YouTube or Zoom live stream</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> Remote online speakers on screen</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> Live slides & speaker graphics</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> <strong>Executive highlight film</strong></li>
+                        </ul>
+                    </div>
+
+                    <button onclick="selectPackage('Hybrid Conference')" class="mt-8 w-full py-3 rounded-xl bg-brand-red hover:bg-brand-redDark text-white font-semibold text-sm shadow-md transition">
+                        Request Quote
+                    </button>
+                </div>
+
+                <!-- Package 3: Flagship Summit -->
+                <div class="bg-white rounded-2xl border border-brand-border border-t-4 border-t-brand-dark p-7 flex flex-col justify-between clean-card">
+                    <div>
+                        <div class="flex items-center justify-between text-xs font-semibold text-brand-gray mb-3">
+                            <span>500+ Guests</span>
+                            <span>Multi-Day • Multi-Venue</span>
+                        </div>
+                        <h3 class="font-display font-extrabold text-2xl text-brand-dark">Flagship Summit</h3>
+                        <p class="text-xs text-brand-gray mt-1.5">Complete direction for government summits and diplomatic forums.</p>
+                        
+                        <div class="my-5 border-t border-brand-border"></div>
+                        
+                        <ul class="space-y-3 text-sm text-brand-dark">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> Full show direction & run-of-show</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> Custom 3D stage, LED & lighting</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> Interpretation & press media centre</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> Multi-camera broadcast feed</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> Real-time social media coverage</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-red text-xs"></i> <strong>Full documentary recap</strong></li>
+                        </ul>
+                    </div>
+
+                    <button onclick="selectPackage('Flagship Summit')" class="mt-8 w-full py-3 rounded-xl border border-brand-dark text-brand-dark hover:bg-brand-dark hover:text-white font-semibold text-sm transition">
+                        Request Quote
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Clean Add-Ons Strip -->
+            <div class="mt-8 p-5 rounded-2xl bg-white border border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                <div class="flex items-center gap-3">
+                    <span class="w-9 h-9 rounded-lg bg-brand-redSoft text-brand-red flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-plus"></i>
+                    </span>
+                    <div>
+                        <span class="font-display font-bold text-sm text-brand-dark">Optional Turnkey Add-Ons:</span>
+                        <span class="text-xs sm:text-sm text-brand-gray ml-1">Delegate registration & badges, travel logistics, catering & floral decor via vetted partner vendors, and post-event summary reports.</span>
+                    </div>
+                </div>
+                <a href="#proposal" class="shrink-0 text-xs font-bold text-brand-red hover:text-brand-redDark whitespace-nowrap">
+                    Add to Proposal →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 6. PROVEN TRACK RECORD (3 Case Studies with Crisp Event Photos)       -->
+    <!-- ===================================================================== -->
+    <section id="case-studies" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-red">Our Track Record</span>
+                <h2 class="font-display text-3xl sm:text-4xl text-brand-dark mt-2">
+                    <span class="font-light">Proven Across </span>
+                    <strong class="font-extrabold text-brand-red">Major Live Events</strong>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Case 1 -->
+                <div class="rounded-2xl border border-brand-border overflow-hidden bg-white flex flex-col justify-between clean-card group">
+                    <div>
+                        <div class="relative h-48 overflow-hidden bg-brand-light">
+                            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80"
+                                 onerror="this.src='https://placehold.co/800x450/F8F9FA/1E2022?text=National+Mass+Gathering'"
+                                 alt="Large illuminated stage and SMD screen setup for 300,000 attendees"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/95 text-brand-red text-[11px] font-bold shadow-sm">
+                                300,000+ Attendees
+                            </span>
+                        </div>
+                        <div class="p-6 pb-2">
+                            <h3 class="font-display font-bold text-lg text-brand-dark">
+                                National Mass Gathering
+                            </h3>
+                            <p class="text-sm text-brand-gray mt-2 leading-relaxed">
+                                Delivered a large illuminated stage, towering SMD screens, concert sound, and live multi-camera broadcast for over 300,000 attendees.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-4">
+                        <button onclick="openCaseModal('300,000-Person National Gathering', 'Engineered full stage lighting, mega SMD screens, and multi-camera broadcast switching for 300,000+ live attendees with zero downtime.')" class="text-xs font-bold text-brand-red hover:text-brand-redDark flex items-center gap-1.5">
+                            <i class="fa-solid fa-play-circle text-sm"></i> Watch 60s Clip
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="rounded-2xl border border-brand-border overflow-hidden bg-white flex flex-col justify-between clean-card group">
+                    <div>
+                        <div class="relative h-48 overflow-hidden bg-brand-light">
+                            <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?auto=format&fit=crop&w=800&q=80"
+                                 onerror="this.src='https://placehold.co/800x450/F8F9FA/1E2022?text=Donor+Hybrid+Forum'"
+                                 alt="International NGO and donor hybrid policy conference panel"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/95 text-brand-red text-[11px] font-bold shadow-sm">
+                                Development & Donors
+                            </span>
+                        </div>
+                        <div class="p-6 pb-2">
+                            <h3 class="font-display font-bold text-lg text-brand-dark">
+                                International Donor Hybrid Forum
+                            </h3>
+                            <p class="text-sm text-brand-gray mt-2 leading-relaxed">
+                                Connected 250 Islamabad policymakers with global speakers via live Zoom/YouTube streaming, backup internet, and a same-day recap film.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-4">
+                        <button onclick="openCaseModal('International Donor Hybrid Forum', 'Managed 4-camera live switching, remote speaker integration, dual-ISP internet backup, and delivered a same-day highlight video.')" class="text-xs font-bold text-brand-red hover:text-brand-redDark flex items-center gap-1.5">
+                            <i class="fa-solid fa-play-circle text-sm"></i> Watch 60s Clip
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="rounded-2xl border border-brand-border overflow-hidden bg-white flex flex-col justify-between clean-card group">
+                    <div>
+                        <div class="relative h-48 overflow-hidden bg-brand-light">
+                            <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=800&q=80"
+                                 onerror="this.src='https://placehold.co/800x450/F8F9FA/1E2022?text=National+Pharma+Symposium'"
+                                 alt="Corporate medical symposium stage with widescreen LED backdrop"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/95 text-brand-red text-[11px] font-bold shadow-sm">
+                                Healthcare & Corporate
+                            </span>
+                        </div>
+                        <div class="p-6 pb-2">
+                            <h3 class="font-display font-bold text-lg text-brand-dark">
+                                National Pharma Symposium
+                            </h3>
+                            <p class="text-sm text-brand-gray mt-2 leading-relaxed">
+                                Produced a 350-doctor symposium featuring widescreen presentation walls, crisp panel audio, stage direction, and post-event video highlights.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-4">
+                        <button onclick="openCaseModal('National Pharma Symposium', 'Executed custom stage design, widescreen clinical SMD displays, run-of-show management, and executive highlight editing.')" class="text-xs font-bold text-brand-red hover:text-brand-redDark flex items-center gap-1.5">
+                            <i class="fa-solid fa-play-circle text-sm"></i> Watch 60s Clip
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Simple Founder Credibility Bar -->
+            <div class="mt-12 p-6 sm:p-8 rounded-2xl bg-brand-light border border-brand-border flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-1 text-center md:text-left">
+                    <div class="text-xs font-bold uppercase tracking-wider text-brand-red">Leadership Pedigree</div>
+                    <h4 class="font-display font-bold text-lg text-brand-dark">
+                        Led by Salman Hameed Shaikh — Al Jazeera Trained & Former Geo TV Format-Show Producer
+                    </h4>
+                    <p class="text-xs sm:text-sm text-brand-gray">
+                        Supported by our Islamabad base at SPARK Studio • SECP Registered • NTN & Active Taxpayer (ATL)
+                    </p>
+                </div>
+                <button onclick="openCapabilityModal()" class="shrink-0 px-5 py-3 rounded-xl bg-white border border-brand-border hover:border-brand-red text-brand-dark font-bold text-xs shadow-sm transition">
+                    <i class="fa-solid fa-file-pdf text-brand-red mr-1.5"></i> Download Credentials
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 7. ISLAMABAD VENUES SERVED (Crisp Venue Visual Cards)                 -->
+    <!-- ===================================================================== -->
+    <section id="venues" class="py-16 bg-brand-light border-y border-brand-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-red">Local Experience</span>
+                <h2 class="font-display text-2xl sm:text-3xl text-brand-dark mt-2">
+                    <span class="font-light">Islamabad Venues </span>
+                    <strong class="font-extrabold text-brand-red">We Serve</strong>
+                </h2>
+                <p class="text-xs sm:text-sm text-brand-gray mt-2">
+                    Familiar with hall rigging, hotel AV rules, and loading access across the capital’s premier venues.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <!-- Venue 1 -->
+                <div class="rounded-xl bg-white border border-brand-border overflow-hidden clean-card">
+                    <div class="h-24 overflow-hidden bg-brand-light">
+                        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=500&q=75"
+                             onerror="this.src='https://placehold.co/500x250/F8F9FA/1E2022?text=Serena+Hotel'"
+                             alt="Islamabad Serena Hotel Ballroom"
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3.5 text-center">
+                        <div class="font-display font-bold text-xs text-brand-dark">Islamabad Serena Hotel</div>
+                        <div class="text-[11px] text-brand-gray mt-0.5">Sheesh Mahal & 20 Halls</div>
+                    </div>
+                </div>
+
+                <!-- Venue 2 -->
+                <div class="rounded-xl bg-white border border-brand-border overflow-hidden clean-card">
+                    <div class="h-24 overflow-hidden bg-brand-light">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=500&q=75"
+                             onerror="this.src='https://placehold.co/500x250/F8F9FA/1E2022?text=Marriott+Hotel'"
+                             alt="Islamabad Marriott Hotel Conference Hall"
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3.5 text-center">
+                        <div class="font-display font-bold text-xs text-brand-dark">Islamabad Marriott Hotel</div>
+                        <div class="text-[11px] text-brand-gray mt-0.5">Crystal Ballroom & 17 Rooms</div>
+                    </div>
+                </div>
+
+                <!-- Venue 3 -->
+                <div class="rounded-xl bg-white border border-brand-border overflow-hidden clean-card">
+                    <div class="h-24 overflow-hidden bg-brand-light">
+                        <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=500&q=75"
+                             onerror="this.src='https://placehold.co/500x250/F8F9FA/1E2022?text=Movenpick+Islamabad'"
+                             alt="Mövenpick Hotel Islamabad"
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3.5 text-center">
+                        <div class="font-display font-bold text-xs text-brand-dark">Mövenpick Islamabad</div>
+                        <div class="text-[11px] text-brand-gray mt-0.5">Centaurus Convention Halls</div>
+                    </div>
+                </div>
+
+                <!-- Venue 4 -->
+                <div class="rounded-xl bg-white border border-brand-border overflow-hidden clean-card">
+                    <div class="h-24 overflow-hidden bg-brand-light">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=500&q=75"
+                             onerror="this.src='https://placehold.co/500x250/F8F9FA/1E2022?text=Jinnah+Convention+Centre'"
+                             alt="Jinnah Convention Centre Auditorium"
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3.5 text-center">
+                        <div class="font-display font-bold text-xs text-brand-dark">Jinnah Convention Centre</div>
+                        <div class="text-[11px] text-brand-gray mt-0.5">National Summits & Forums</div>
+                    </div>
+                </div>
+
+                <!-- Venue 5 -->
+                <div class="sm:col-span-2 lg:col-span-1 rounded-xl bg-white border border-brand-border overflow-hidden clean-card">
+                    <div class="h-24 overflow-hidden bg-brand-light">
+                        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=500&q=75"
+                             onerror="this.src='https://placehold.co/500x250/F8F9FA/1E2022?text=Pak-China+Centre'"
+                             alt="Pak-China Friendship Centre"
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3.5 text-center">
+                        <div class="font-display font-bold text-xs text-brand-dark">Pak-China Friendship Centre</div>
+                        <div class="text-[11px] text-brand-gray mt-0.5">Auditorium & Expo Halls</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 9. SIMPLE REQUEST A PROPOSAL SECTION                                  -->
+    <!-- ===================================================================== -->
+    <section id="proposal" class="py-20 bg-brand-light border-t border-brand-border">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl border border-brand-border shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+                
+                <!-- Left Info Column -->
+                <div class="lg:col-span-5 bg-brand-red text-white p-8 sm:p-10 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="inline-block px-3 py-1 rounded-full bg-white/15 text-white text-xs font-bold">
+                            Fast 24-Hour Response
+                        </span>
+                        <h2 class="font-display font-extrabold text-2xl sm:text-3xl leading-tight">
+                            Let’s Plan Your Next Islamabad Event
+                        </h2>
+                        <p class="text-sm text-white/90 leading-relaxed">
+                            Share your date, venue, and guest count. Our Islamabad production lead will send a clear scope and quote.
+                        </p>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-white/20 space-y-3 text-xs">
+                        <p><i class="fa-solid fa-location-dot mr-2"></i>SPARK Studio & Office, Islamabad</p>
+                        <p><i class="fa-solid fa-envelope mr-2"></i>live@milestone.pk</p>
+                        <button onclick="openCapabilityModal()" class="mt-2 w-full py-2.5 px-4 rounded-xl bg-white text-brand-red font-bold text-xs hover:bg-brand-light transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-download"></i> Download Capability Statement (PDF)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Form Column -->
+                <div class="lg:col-span-7 p-8 sm:p-10">
+                    <form onsubmit="handleProposalSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-brand-dark mb-1">Your Name *</label>
+                                <input type="text" required placeholder="Full Name" class="w-full px-3.5 py-2.5 rounded-lg border border-brand-border text-sm focus:outline-none focus:border-brand-red">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-brand-dark mb-1">Organization *</label>
+                                <input type="text" required placeholder="Ministry / UN / Company" class="w-full px-3.5 py-2.5 rounded-lg border border-brand-border text-sm focus:outline-none focus:border-brand-red">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-brand-dark mb-1">Email Address *</label>
+                                <input type="email" required placeholder="you@organization.com" class="w-full px-3.5 py-2.5 rounded-lg border border-brand-border text-sm focus:outline-none focus:border-brand-red">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-brand-dark mb-1">Phone / WhatsApp *</label>
+                                <input type="tel" required placeholder="+92 300 0000000" class="w-full px-3.5 py-2.5 rounded-lg border border-brand-border text-sm focus:outline-none focus:border-brand-red">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-brand-dark mb-1">Package</label>
+                                <select id="packageSelect" class="w-full px-3 py-2.5 rounded-lg border border-brand-border text-sm bg-white focus:outline-none focus:border-brand-red">
+                                    <option value="Hybrid Conference">Hybrid Conference</option>
+                                    <option value="Live Essentials">Live Essentials</option>
+                                    <option value="Flagship Summit">Flagship Summit</option>
+                                    <option value="Custom RFP">Custom / Tender</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-brand-dark mb-1">Venue</label>
+                                <select class="w-full px-3 py-2.5 rounded-lg border border-brand-border text-sm bg-white focus:outline-none focus:border-brand-red">
+                                    <option>Serena Hotel</option>
+                                    <option>Marriott Hotel</option>
+                                    <option>Mövenpick</option>
+                                    <option>Jinnah Convention Centre</option>
+                                    <option>Pak-China Centre</option>
+                                    <option>Other Venue</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-brand-dark mb-1">Event Date</label>
+                                <input type="date" class="w-full px-3 py-2.5 rounded-lg border border-brand-border text-sm focus:outline-none focus:border-brand-red">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-brand-dark mb-1">Brief Details</label>
+                            <textarea rows="3" placeholder="Tell us your estimated guest count and if you need live streaming..." class="w-full px-3.5 py-2.5 rounded-lg border border-brand-border text-sm focus:outline-none focus:border-brand-red"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-red hover:bg-brand-redDark text-white font-bold text-sm shadow-md transition">
+                            Send Proposal Request
+                        </button>
+
+                        <div id="formSuccessBanner" class="hidden p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-medium">
+                            <strong>Thank you!</strong> We have received your inquiry and will reply within 24 hours.
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 10. CLEAN MILESTONE COMMUNICATIONS FOOTER                             -->
+    <!-- ===================================================================== -->
+    <footer class="bg-white border-t border-brand-border py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex flex-col items-center sm:items-start">
+                <span class="font-display font-extrabold text-2xl text-brand-red lowercase leading-none">milestone</span>
+                <span class="text-[11px] text-brand-dark mt-0.5">Dream, Create, inspire • Milestone Communications</span>
+            </div>
+            <div class="text-xs text-brand-gray text-center sm:text-right">
+                © 2026 Milestone Communications (milestone.pk). All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================================================================== -->
+    <!-- MODALS (Showreel Preview & Capability Statement PDF)                  -->
+    <!-- ===================================================================== -->
+    <div id="videoModal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl border border-brand-border">
+            <div class="px-5 py-3.5 border-b border-brand-border flex items-center justify-between">
+                <span id="videoModalTitle" class="font-display font-bold text-sm text-brand-dark">Milestone Live Showreel</span>
+                <button onclick="closeModal('videoModal')" class="text-brand-gray hover:text-brand-dark p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="aspect-video bg-brand-light flex flex-col items-center justify-center p-8 text-center">
+                <div class="w-14 h-14 rounded-full bg-brand-redSoft text-brand-red flex items-center justify-center text-xl mb-3">
+                    <i class="fa-solid fa-play ml-0.5"></i>
+                </div>
+                <h4 id="videoModalHeading" class="font-display font-bold text-lg text-brand-dark">Showreel Video Placeholder</h4>
+                <p id="videoModalDesc" class="text-xs sm:text-sm text-brand-gray max-w-md mt-2 leading-relaxed">
+                    Embed your YouTube or Vimeo showreel link here once your editor exports the final cut.
+                </p>
+            </div>
+            <div class="px-5 py-3 bg-white border-t border-brand-border flex justify-end">
+                <a href="#proposal" onclick="closeModal('videoModal')" class="px-4 py-2 rounded-lg bg-brand-red text-white text-xs font-bold">
+                    Request Similar Setup
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="capabilityModal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border border-brand-border">
+            <div class="px-6 py-4 border-b border-brand-border flex items-center justify-between">
+                <span class="font-display font-bold text-base text-brand-dark">Milestone Capability Statement</span>
+                <button onclick="closeModal('capabilityModal')" class="text-brand-gray hover:text-brand-dark">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-4 text-xs sm:text-sm text-brand-gray">
+                <p class="text-brand-dark font-semibold">Included in our tender-ready PDF profile:</p>
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-check text-brand-red mr-2"></i>SECP Registration, NTN & Active Taxpayer (ATL) Status</li>
+                    <li><i class="fa-solid fa-check text-brand-red mr-2"></i>18-Year Corporate, Donor & Government Client List</li>
+                    <li><i class="fa-solid fa-check text-brand-red mr-2"></i>Owned Multi-Camera & Live Streaming Equipment List</li>
+                    <li><i class="fa-solid fa-check text-brand-red mr-2"></i>Islamabad Operations Base (SPARK Studio)</li>
+                </ul>
+            </div>
+            <div class="px-6 py-4 bg-brand-light border-t border-brand-border flex justify-end gap-3">
+                <button onclick="closeModal('capabilityModal')" class="px-4 py-2 rounded-lg border border-brand-border text-xs font-semibold text-brand-dark">
+                    Close
+                </button>
+                <a href="#proposal" onclick="closeModal('capabilityModal')" class="px-4 py-2 rounded-lg bg-brand-red text-white text-xs font-bold">
+                    Request PDF Copy
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+        function selectPackage(pkg) {
+            document.getElementById('packageSelect').value = pkg;
+            document.getElementById('proposal').scrollIntoView({ behavior: 'smooth' });
+        }
+        function toggleFaq(id) {
+            document.getElementById(`faqBody${id}`).classList.toggle('hidden');
+            document.getElementById(`faqIcon${id}`).classList.toggle('rotate-180');
+        }
+        function openShowreelModal(title) {
+            document.getElementById('videoModalTitle').textContent = title;
+            document.getElementById('videoModalHeading').textContent = title;
+            document.getElementById('videoModalDesc').textContent = 'Paste your YouTube or Vimeo embed iframe here once your 30s / 90s showreel is uploaded.';
+            document.getElementById('videoModal').classList.remove('hidden');
+        }
+        function openCaseModal(title, desc) {
+            document.getElementById('videoModalTitle').textContent = 'Case Study Clip';
+            document.getElementById('videoModalHeading').textContent = title;
+            document.getElementById('videoModalDesc').textContent = desc;
+            document.getElementById('videoModal').classList.remove('hidden');
+        }
+        function openCapabilityModal() {
+            document.getElementById('capabilityModal').classList.remove('hidden');
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+        function handleProposalSubmit(e) {
+            e.preventDefault();
+            document.getElementById('formSuccessBanner').classList.remove('hidden');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
